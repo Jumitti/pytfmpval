@@ -26,6 +26,26 @@ pytfmpval is on PyPI, so you can install via ``pip`` easily::
 
     pip install pytfmpval
 
+Windows Compatibility Fix
+---------------
+
+The original pytfmpval package is not compatible with Windows out of the box.
+When attempting to install the package using pip install pytfmpval on Windows, the following error may occur during the build process:
+
+>>> fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
+
+This is due to the use of unistd.h, which is a Unix-specific header and not available on Windows.
+
+This fork removes the dependency on unistd.h, allowing successful compilation and installation on Windows systems.
+No core functionality is affected by this change.
+
+Installation (Windows)
+To install the Windows-compatible version from this fork:
+
+>>> pip install git+https://github.com/Jumitti/pytfmpval.git
+
+This ensures compatibility with Python 3.12 and MSVC toolchains on Windows.
+
 
 A Simple Example
 --------------------------
